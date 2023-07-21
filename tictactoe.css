@@ -1,80 +1,30 @@
-#btn_1 {
-    font-size: 50px;
+.Buttons button{
     position: absolute;
-    left: 40%;
+    height: 100px;
+    width: 100px;
+    font-size: 50px;
+}
+
+.first_row button {
     top: 30%;
-    width: 100px;
-    height: 100px;
 }
 
-#btn_2 {
-    font-size: 50px;
-    position: absolute;
-    left: 47%;
-    top: 30%;
-    width: 100px;
-    height: 100px;
+.second_row button {
+    top: 41%;
 }
 
-#btn_3 {
-    font-size: 50px;
-    position: absolute;
-    left: 54%;
-    top: 30%;
-    width: 100px;
-    height: 100px;
+.third_row button {
+    top: 52%;
 }
 
-#btn_4 {
-    font-size: 50px;
-    position: absolute;
+#btn_1, #btn_4, #btn_7 {
     left: 40%;
-    top: 41%;
-    width: 100px;
-    height: 100px;
 }
 
-#btn_5 {
-    font-size: 50px;
-    position: absolute;
+#btn_2, #btn_5, #btn_8{
     left: 47%;
-    top: 41%;
-    width: 100px;
-    height: 100px;
 }
 
-#btn_6 {
-    font-size: 50px;
-    position: absolute;
+#btn_3, #btn_6, #btn_9 {
     left: 54%;
-    top: 41%;
-    width: 100px;
-    height: 100px;
-}
-
-#btn_7 {
-    font-size: 50px;
-    position: absolute;
-    left: 40%;
-    top: 52%;
-    width: 100px;
-    height: 100px;
-}
-
-#btn_8 {
-    font-size: 50px;
-    position: absolute;
-    left: 47%;
-    top: 52%;
-    width: 100px;
-    height: 100px;
-}
-
-#btn_9 {
-    font-size: 50px;
-    position: absolute;
-    left: 54%;
-    top: 52%;
-    width: 100px;
-    height: 100px;
 }
