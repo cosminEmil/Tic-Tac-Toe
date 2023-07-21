@@ -17,8 +17,13 @@ function addValue(button) {
             button.innerText = "O";
         }
         ++players_turn; 
+        if (players_turn == 9) {
+            alert("Draw");
+        }
     }
 }
+
+
 
 function checkButtons(button_x, button_y, button_z) {
     if (button_x.innerText == "X" && button_y.innerText == button_x.innerText && button_x.innerText == button_z.innerText) {
@@ -78,3 +83,4 @@ function button_9() {
     addValue(button9);
     checkWinner();
 }
+
