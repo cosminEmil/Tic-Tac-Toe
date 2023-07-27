@@ -16,11 +16,11 @@ function addValue(button) {
     }
 }
 
-function checkButtons(button_x, button_y, button_z) {
-    if (button_x.innerText == "X" && button_y.innerText == button_x.innerText && button_x.innerText == button_z.innerText) {
+function checkButtons(button1, button2, button3) {
+    if (button1.innerText == "X" && button2.innerText == button1.innerText && button1.innerText == button3.innerText) {
         return 1;
     }
-    if (button_x.innerText == "O" && button_y.innerText == button_x.innerText && button_x.innerText == button_z.innerText) {
+    if (button1.innerText == "O" && button2.innerText == button1.innerText && button1.innerText == button3.innerText) {
         return 2;
     }
     return 0;
@@ -50,15 +50,9 @@ function checkWinner() {
     let mainDiagonal = checkButtons(buttons[0], buttons[4], buttons[8]);
     let secondaryDiagonal = checkButtons(buttons[2], buttons[4], buttons[6]);
 
-    if (mainDiagonal == 1) {
+    if (mainDiagonal == 1 || secondaryDiagonal == 1) {
         ++xWinner;
-    } else if (mainDiagonal  == 2) {
-        ++oWinner;
-    }
-
-    if (secondaryDiagonal == 1) {
-        ++xWinner;
-    } else if (secondaryDiagonal == 2) {
+    } else if (mainDiagonal == 2 || secondaryDiagonal == 2) {
         ++oWinner;
     }
 
