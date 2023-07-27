@@ -1,12 +1,5 @@
-let button1 = document.getElementById("btn_1");
-let button2 = document.getElementById("btn_2");
-let button3 = document.getElementById("btn_3");
-let button4 = document.getElementById("btn_4");
-let button5 = document.getElementById("btn_5");
-let button6 = document.getElementById("btn_6");
-let button7 = document.getElementById("btn_7");
-let button8 = document.getElementById("btn_8");
-let button9 = document.getElementById("btn_9");
+let container = document.getElementById("buttonsContainer");
+let buttons = container.getElementsByTagName("button");
 let players_turn = 0;
 
 function addValue(button) {
@@ -23,8 +16,6 @@ function addValue(button) {
     }
 }
 
-
-
 function checkButtons(button_x, button_y, button_z) {
     if (button_x.innerText == "X" && button_y.innerText == button_x.innerText && button_x.innerText == button_z.innerText) {
         return 1;
@@ -36,51 +27,52 @@ function checkButtons(button_x, button_y, button_z) {
 }
 
 function checkWinner() {
-    if (checkButtons(button1, button2, button3) == 1 || checkButtons(button1, button4, button7) == 1 || checkButtons(button1, button5, button9) == 1 || checkButtons(button4, button5, button6) == 1 || checkButtons(button7, button8, button9) == 1 || checkButtons(button2, button5, button8) == 1 || checkButtons(button3, button6, button9) == 1 || checkButtons(button3, button5, button7) == 1) {
+    let xWinner = 0;
+    let oWinner = 0;
+    for (let i = 0; i < 7; i += 3) {
+        let check = checkButtons(buttons[i], buttons[i + 1], buttons[i + 2]);
+        if (check == 1) {
+            ++xWinner;
+        } else if (check == 2) {
+            ++oWinner;
+        }
+    }
+
+    for (let i = 0; i < 3; ++i) {
+        let check = checkButtons(buttons[i], buttons[i + 3], buttons[i + 6]);
+        if (check == 1) {
+            ++xWinner;
+        } else if (check == 2) {
+            ++oWinner;
+        }
+    }
+
+    let mainDiagonal = checkButtons(buttons[0], buttons[4], buttons[8]);
+    let secondaryDiagonal = checkButtons(buttons[2], buttons[4], buttons[6]);
+
+    if (mainDiagonal == 1) {
+        ++xWinner;
+    } else if (mainDiagonal  == 2) {
+        ++oWinner;
+    }
+
+    if (secondaryDiagonal == 1) {
+        ++xWinner;
+    } else if (secondaryDiagonal == 2) {
+        ++oWinner;
+    }
+
+    if (xWinner) {
         alert("Player 1 wins");
-    } else if (checkButtons(button1, button2, button3) == 2 || checkButtons(button1, button4, button7) == 2 || checkButtons(button1, button5, button9) == 2 || checkButtons(button4, button5, button6) == 2 || checkButtons(button7, button8, button9) == 2 || checkButtons(button2, button5, button8) == 2 || checkButtons(button3, button6, button9) == 2 || checkButtons(button3, button5, button7) == 2) {
+        window.location.reload();
+    } else if (oWinner) {
         alert("Player 2 wins");
+        window.location.reload();
     }
 }
 
-function button_1(){
-    addValue(button1);
-    checkWinner();
-}
 
-function button_2() {
-    addValue(button2);
+function btn(button) {
+    addValue(button);
     checkWinner();
 }
-function button_3() {
-    addValue(button3);
-    checkWinner();
-}
-function button_4() {
-    addValue(button4);
-    checkWinner();
-}
-
-function button_5() {
-    addValue(button5);
-    checkWinner();
-}
-function button_6() {
-    addValue(button6);
-    checkWinner();
-}
-
-function button_7() {
-    addValue(button7);
-    checkWinner();
-}
-
-function button_8() {
-    addValue(button8);
-    checkWinner();
-}
-function button_9() {
-    addValue(button9);
-    checkWinner();
-}
-
